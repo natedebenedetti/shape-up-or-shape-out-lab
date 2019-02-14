@@ -32,11 +32,10 @@ class Triangle extends Shape {
 
 
 function openNav() {
-    document.getElementById("mySidePanel").style.width = "250px";
-    let mySidePanel = $('#mySidePanel');
-    console.log(mySidePanel);
+    $('#mySidePanel')[0].style.width = '250px';
+    
 }
 
 function closeNav() {
-    document.getElementById("mySidePanel").style.width = "0";
+    $('#mySidePanel')[0].style.width = "0";
 }
