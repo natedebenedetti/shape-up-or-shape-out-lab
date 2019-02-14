@@ -1,5 +1,8 @@
+#d-pad-container {
+    display: flex;
+    justify-content: center;
+}
 #drawing-pad {
-    margin-left: 275px;
     height: 600px;
     width: 600px;
     background-color: lightgray;
@@ -11,6 +14,11 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     color: blue;
+}
+
+#nav-button-container {
+    display: flex;
+    justify-content: center;
 }
 
 
