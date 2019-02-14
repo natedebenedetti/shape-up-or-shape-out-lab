@@ -1,0 +1,47 @@
+#drawing-pad {
+    margin-left: 275px;
+    height: 600px;
+    width: 600px;
+    background-color: lightgray;
+}
+
+#tool-container {
+    margin: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: blue;
+}
+
+
+.sidePanel {
+    height: 500px; /* Specify a height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 250px;
+    right: 0;
+    background-color: lightgrey;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+.sidePanel p {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidePanel .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+    
