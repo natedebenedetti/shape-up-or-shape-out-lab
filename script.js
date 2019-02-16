@@ -10,14 +10,14 @@ class Shape {
 class Rectangle extends Shape {
     constructor(width, height) {
         super(width, height);
-        this.div.css({"width": width, "height": height});
+        this.div.css({"width": width, "height": height, "background-color": "green"});
     }
 }
 class Square extends Shape {
     constructor(sideLength) {
         super(sideLength, sideLength);
         this.sideLength = sideLength;
-        this.div.css({"width": sideLength, "height": sideLength});
+        this.div.css({"width": sideLength, "height": sideLength, "background-color": "red"});
 
     }
 }
@@ -25,14 +25,18 @@ class Circle extends Shape {
     constructor(radius) {
         super(radius*2, radius*2)
         this.radius = radius;
-        this.div.css({"width": radius*2, "height": radius*2, "border-radius": "50%"});
+        this.div.css({"width": radius*2, "height": radius*2, "border-radius": "50%", "background-color": "purple"});
         
         
     }
 }
 class Triangle extends Shape {
-    constructor() {
-        super();
+    constructor(height) {
+        super(height, height);
+        this.height = height;
+        
+        this.div.css({"width": "0", "height": "0", "border-bottom": "" + height + "px solid yellow", "border-right": "" + height + "px solid transparent"});
+        
     }
 }
 
@@ -54,7 +58,8 @@ $('#make-cir').click(() => {
     
 });
 $('#make-tri').click(() => {
-    
+    let height = $('#tri-form').val();
+    let newTri = new Triangle(height);
     
 });
 
