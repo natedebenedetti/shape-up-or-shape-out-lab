@@ -81,7 +81,14 @@ class Triangle extends Shape { //child class of shape
     constructor(height) {
         super(height, height, name);
         this.div.css({ "width": "0", "height": "0", "border-bottom": "" + height + "px solid yellow", "border-right": "" + height + "px solid transparent" });
-
+        this.triArea();
+        this.triPerimeter();
+    }
+    triArea() {
+        this.area = this.height * this.height / 2;
+    }
+    triPerimeter(){
+        this.perimeter = 2 * this.height + Math.sqrt(2) * this.height; //NOT SURE THIS MATH IS CORRECT NEED TO CHECK BEFORE FINAL GITHUB PUSH.
     }
 }
 // beginning of button click listeners that create the shapes.
