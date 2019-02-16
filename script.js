@@ -9,6 +9,7 @@ class Shape {
         this.div.hover(() => { // when you mouse over a shape it displays the nav bar with info about that shape, mousing out hides nav bar.
             openNav();
             $('#p1').text(`Shape Name: ${name}`);
+            console.log(name);
             $('#p2').text(`Width: ${width}`);
             $('#p3').text(`Height: ${height}`);
         }, () => {
@@ -30,25 +31,23 @@ class Shape {
     }
 }
 class Rectangle extends Shape { //child class of shape
-    constructor(width, height, name) {
+    constructor(width, height) {
         super(width, height, name);
-
         this.div.css({ "width": width, "height": height, "background-color": "green" });
 
 
     }
 }
 class Square extends Shape { //child class of shape
-    constructor(sideLength, name) {
+    constructor(sideLength) {
         super(sideLength, sideLength, name);
         this.sideLength = sideLength;
-
         this.div.css({ "width": sideLength, "height": sideLength, "background-color": "red" });
 
     }
 }
 class Circle extends Shape { //child class of shape
-    constructor(radius, name) {
+    constructor(radius) {
         super(radius * 2, radius * 2, name);
         this.radius = radius;
         this.div.css({ "width": radius * 2, "height": radius * 2, "border-radius": "50%", "background-color": "purple" });
@@ -57,10 +56,8 @@ class Circle extends Shape { //child class of shape
     }
 }
 class Triangle extends Shape { //child class of shape
-    constructor(height, name) {
+    constructor(height) {
         super(height, height, name);
-        this.height = height;
-
         this.div.css({ "width": "0", "height": "0", "border-bottom": "" + height + "px solid yellow", "border-right": "" + height + "px solid transparent" });
 
     }
@@ -70,22 +67,25 @@ $('#make-rec').click(() => {
     let width = $('#rec-form-w').val();
     let height = $('#rec-form-h').val();
     name = "Rectangle";
-    let newRec = new Rectangle(width, height, name);
+    let newRec = new Rectangle(width, height);
+    
 });
 $('#make-sq').click(() => {
     let sideLength = $('#sq-form').val();
     name = "Square";
-    let newSq = new Square(sideLength, name);
+    let newSq = new Square(sideLength);
+    
 });
 $('#make-cir').click(() => {
     let radius = $('#cir-form').val();
     name = "Circle";
-    let newCir = new Circle(radius, name);
+    let newCir = new Circle(radius);
+    
 });
 $('#make-tri').click(() => {
     let height = $('#tri-form').val();
     name = "Triangle";
-    let newTri = new Triangle(height, name);
+    let newTri = new Triangle(height);
 });
 // end of button click listeners for creating shapes.
 
