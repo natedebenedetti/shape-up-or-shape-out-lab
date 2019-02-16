@@ -3,9 +3,9 @@
     justify-content: center;
 }
 #drawing-pad {
-    /* position: relative; */
-    height: 600px;
+    position: relative;
     width: 600px;
+    height: 600px;
     background-color: lightgray;
 }
 
@@ -23,13 +23,12 @@
 }
 
 .shape {
-    /* position: Absolute; */
-    
+    position: absolute;
 }
 
 
 .sidePanel {
-    height: 500px; 
+    height: 750px; 
     width: 0; 
     position: fixed; 
     z-index: 1; 
@@ -50,12 +49,6 @@
     transition: 0.3s;
 }
 
-.sidePanel .closeBtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
+
 
     
