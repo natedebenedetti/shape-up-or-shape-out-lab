@@ -4,12 +4,11 @@ class Shape {
         this.height = height;
         this.name = name;
         this.div = $('<div class="shape"></div>');
-        this.randomLocation(); // this is working for placing the shapes in random locations, but I need to investigate why they don't stay within the boundaries of the canvas.
+        this.randomLocation(); // 
         $('#drawing-pad').append(this.div);
         this.div.hover(() => { // when you mouse over a shape it displays the nav bar with info about that shape, mousing out hides nav bar.
             openNav();
             $('#p1').text(`Shape Name: ${name}`);
-            console.log(name);
             $('#p2').text(`Width: ${width}`);
             $('#p3').text(`Height: ${height}`);
         }, () => {
@@ -24,8 +23,10 @@ class Shape {
 
     }
     randomLocation() { //method that calls on the "randomVals" function below to place the child shapes in absolute postions on the drawing pad.
-        let x = randomVals(0, 600);
-        let y = randomVals(0, 600);
+        const xMax = 600 - this.width; //this subtracts the width from the maximum x value so that the shape stays in the boundaries of the canvas.
+        const yMax = 600 - this.height;// does same thing for the maximum y value.
+        let x = randomVals(0, xMax);
+        let y = randomVals(0, yMax);
         this.div[0].style.left = x + "px";
         this.div[0].style.top = y + "px";
     }
@@ -68,19 +69,19 @@ $('#make-rec').click(() => {
     let height = $('#rec-form-h').val();
     name = "Rectangle";
     let newRec = new Rectangle(width, height);
-    
+
 });
 $('#make-sq').click(() => {
     let sideLength = $('#sq-form').val();
     name = "Square";
     let newSq = new Square(sideLength);
-    
+
 });
 $('#make-cir').click(() => {
     let radius = $('#cir-form').val();
     name = "Circle";
     let newCir = new Circle(radius);
-    
+
 });
 $('#make-tri').click(() => {
     let height = $('#tri-form').val();
