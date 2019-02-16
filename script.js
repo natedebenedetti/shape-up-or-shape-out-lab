@@ -1,24 +1,17 @@
 class Shape {
-    constructor(width, height, name) { //parent class "Shape" contains all inherited methods and properties for the child classes.
+    constructor(width, height, name, area) { //parent class "Shape" contains all inherited methods and properties for the child classes.
         this.width = width;
         this.height = height;
         this.name = name;
+        this.area = area;
         this.div = $('<div class="shape"></div>');
         this.randomLocation(); // 
         $('#drawing-pad').append(this.div);
         this.div.hover(() => { // when you mouse over a shape it displays the nav bar with info about that shape, mousing out hides nav bar.
+            this.describe();
             openNav();
-            $('#p1').text(`Shape Name: ${name}`);
-            $('#p2').text(`Width: ${width}`);
-            $('#p3').text(`Height: ${height}`);
         }, () => {
             closeNav();
-            $('#p1').empty();
-            $('#p2').empty();
-            $('#p3').empty();
-            $('#p4').empty();
-            $('#p5').empty();
-            $('#p6').empty();
         });
 
     }
@@ -30,13 +23,28 @@ class Shape {
         this.div[0].style.left = x + "px";
         this.div[0].style.top = y + "px";
     }
+    describe() {
+        $('#p1').text(`Shape Name: ${this.name}`);
+        $('#p2').text(`Width: ${this.width}`);
+        $('#p3').text(`Height: ${this.height}`);
+        $('#p4').text(`Radius: `);
+        $('#p5').text(`Area: ${this.area}`);
+        $('#p6').text(`Perimeter: ${this.perimeter}`);
+
+    }
 }
 class Rectangle extends Shape { //child class of shape
     constructor(width, height) {
         super(width, height, name);
         this.div.css({ "width": width, "height": height, "background-color": "green" });
-
-
+        this.recArea();
+        this.recPerimeter();
+    }
+    recArea() {
+        this.area = this.width * this.height;
+    }
+    recPerimeter() {
+        this.perimeter = 2 * this.width + 2 * this.height;
     }
 }
 class Square extends Shape { //child class of shape
@@ -44,7 +52,14 @@ class Square extends Shape { //child class of shape
         super(sideLength, sideLength, name);
         this.sideLength = sideLength;
         this.div.css({ "width": sideLength, "height": sideLength, "background-color": "red" });
-
+        this.sqArea();
+        this.sqPerimeter();
+    }
+    sqArea() {
+        this.area = this.sideLength * this.sideLength;
+    }
+    sqPerimeter() {
+        this.perimeter = 4 * this.sideLength;
     }
 }
 class Circle extends Shape { //child class of shape
@@ -52,8 +67,14 @@ class Circle extends Shape { //child class of shape
         super(radius * 2, radius * 2, name);
         this.radius = radius;
         this.div.css({ "width": radius * 2, "height": radius * 2, "border-radius": "50%", "background-color": "purple" });
-
-
+        this.cirArea();
+        this.cirPerimeter();
+    }
+    cirArea() {
+        this.area = this.radius * this.radius * Math.PI;
+    }
+    cirPerimeter() {
+        this.perimeter = this.radius * Math.PI * 2;
     }
 }
 class Triangle extends Shape { //child class of shape
@@ -67,12 +88,14 @@ class Triangle extends Shape { //child class of shape
 $('#make-rec').click(() => {
     let width = $('#rec-form-w').val();
     let height = $('#rec-form-h').val();
+    let area = width * height;
     name = "Rectangle";
     let newRec = new Rectangle(width, height);
 
 });
 $('#make-sq').click(() => {
     let sideLength = $('#sq-form').val();
+    let area = sideLength * sideLength;
     name = "Square";
     let newSq = new Square(sideLength);
 
@@ -97,10 +120,12 @@ function randomVals(min, max) { // function that creates random numbers between 
 }
 
 function openNav() { //function that makes the nav bar visible
-    $('#mySidePanel')[0].style.width = '250px';
+    $('#mySidePanel')[0].style.width = '300px';
 
 }
 
 function closeNav() { //function that removes nav bar from visibility.
     $('#mySidePanel')[0].style.width = "0";
 }
+
+

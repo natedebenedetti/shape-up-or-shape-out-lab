@@ -10,16 +10,11 @@
 }
 
 #tool-container {
-    margin: 2em;
+    margin: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     color: blue;
-}
-
-#nav-button-container {
-    display: flex;
-    justify-content: center;
 }
 
 .shape {
@@ -28,12 +23,12 @@
 
 
 .sidePanel {
-    height: 750px; 
+    height: 600px; 
     width: 0; 
     position: fixed; 
     z-index: 1; 
-    top: 250px;
-    right: 0;
+    top: 138px;
+    left: 1078px;
     background-color: lightgrey;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
