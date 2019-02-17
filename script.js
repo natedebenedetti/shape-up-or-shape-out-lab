@@ -13,6 +13,9 @@ class Shape {
         }, () => {
             closeNav();
         });
+        this.div.dblclick(() => { //click listener listening for double click and removing shape that is double clicked.
+            this.div.remove();
+        });
 
     }
     randomLocation() { //method that calls on the "randomVals" function below to place the child shapes in absolute postions on the drawing pad.
@@ -27,7 +30,8 @@ class Shape {
         $('#p1').text(`Shape Name: ${this.name}`);
         $('#p2').text(`Width: ${this.width}`);
         $('#p3').text(`Height: ${this.height}`);
-        $('#p4').text(`Radius: `);
+        $('#p4').text(`Radius: ${this.radius}`);
+        $('#p4').text(`Radius: ${this.radius}`);
         $('#p5').text(`Area: ${this.area}`);
         $('#p6').text(`Perimeter: ${this.perimeter}`);
 
@@ -39,7 +43,7 @@ class Rectangle extends Shape { //child class of shape
         this.div.css({ "width": width, "height": height, "background-color": "green" });
         this.recArea();
         this.recPerimeter();
-    }
+        }
     recArea() {
         this.area = this.width * this.height;
     }
@@ -87,7 +91,7 @@ class Triangle extends Shape { //child class of shape
     triArea() {
         this.area = this.height * this.height / 2;
     }
-    triPerimeter(){
+    triPerimeter() {
         this.perimeter = 2 * this.height + Math.sqrt(2) * this.height; //NOT SURE THIS MATH IS CORRECT NEED TO CHECK BEFORE FINAL GITHUB PUSH.
     }
 }
@@ -127,7 +131,7 @@ function randomVals(min, max) { // function that creates random numbers between 
 }
 
 function openNav() { //function that makes the nav bar visible
-    $('#mySidePanel')[0].style.width = '300px';
+    $('#mySidePanel')[0].style.width = '400px';
 
 }
 

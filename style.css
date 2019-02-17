@@ -32,7 +32,7 @@
     background-color: lightgrey;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 1s; /* 1 second transition effect to slide in the sidepanel */
+    transition: .5s; /* .5 second transition effect to slide in the sidepanel */
 }
 
 .sidePanel p {
