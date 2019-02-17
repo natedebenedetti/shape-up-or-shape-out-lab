@@ -27,8 +27,8 @@
     width: 0; 
     position: fixed; 
     z-index: 1; 
-    top: 138px;
-    left: 1078px;
+    top: 90px;
+    right: 0px;
     background-color: lightgrey;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */

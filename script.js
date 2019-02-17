@@ -92,7 +92,7 @@ class Triangle extends Shape { //child class of shape
         this.area = this.height * this.height / 2;
     }
     triPerimeter() {
-        this.perimeter = 2 * this.height + Math.sqrt(2) * this.height; //NOT SURE THIS MATH IS CORRECT NEED TO CHECK BEFORE FINAL GITHUB PUSH.
+        this.perimeter = 2 * this.height + Math.sqrt(2) * this.height; 
     }
 }
 // beginning of button click listeners that create the shapes.
